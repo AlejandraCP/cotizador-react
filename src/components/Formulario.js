@@ -8,11 +8,26 @@ class Formulario extends Component {
   planBasicoRef = React.createRef();
   planCompletorRef = React.createRef();
 
-  cotizar = (e) => {
+  cotizar = e => {
     e.preventDefault();
-    console.log(this.marcaRef.current.value);
-    
-  }
+
+    // plan
+    const plan = this.planBasicoRef.current.checked ? "Básico" : "completo";
+
+    // objeto del auto
+    const ObjAuto = {
+      marca: this.marcaRef.current.value,
+      year: this.yearRef.current.value,
+      plan: plan
+    };
+
+    this.props.cotizarSeguroProps(ObjAuto);
+
+    // reset form
+
+    e.currentTarget.reset();
+
+  };
 
   render() {
     return (
@@ -50,7 +65,13 @@ class Formulario extends Component {
             ref={this.planBasicoRef}
           />{" "}
           Básico
-          <input type="radio" name="plan" value="completo" ref={this.planCompletorRef}/> Completo
+          <input
+            type="radio"
+            name="plan"
+            value="completo"
+            ref={this.planCompletorRef}
+          />{" "}
+          Completo
         </div>
         <button type="submit" className="boton">
           Cotizar
