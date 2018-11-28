@@ -4,7 +4,7 @@ const Header = props => {
   return (
     <header className='container-header'>
       <h1>
-        Cotizador de Seguro de Autos
+        {props.titulo}
       </h1>
     </header>
   )
