@@ -1,12 +1,25 @@
 import React, { Component } from "react";
 
 class Formulario extends Component {
+  // refs
+
+  marcaRef = React.createRef();
+  yearRef = React.createRef();
+  planBasicoRef = React.createRef();
+  planCompletorRef = React.createRef();
+
+  cotizar = (e) => {
+    e.preventDefault();
+    console.log(this.marcaRef.current.value);
+    
+  }
+
   render() {
     return (
-      <form className="cotizar-auto">
+      <form className="cotizar-auto" onSubmit={this.cotizar}>
         <div className="campo">
           <label> Marca </label>
-          <select name="marca">
+          <select name="marca" ref={this.marcaRef}>
             <option value="americano"> Americano </option>
             <option value="europeo"> Europeo </option>
             <option value="asiatico"> Asiatico </option>
@@ -14,7 +27,7 @@ class Formulario extends Component {
         </div>
         <div className="campo">
           <label> Año </label>
-          <select name="year">
+          <select name="year" ref={this.yearRef}>
             <option value="2018"> 2018 </option>
             <option value="2017"> 2017 </option>
             <option value="2016"> 2016 </option>
@@ -30,8 +43,14 @@ class Formulario extends Component {
         </div>
         <div className="campo">
           <label> Plan: </label>
-          <input type="radio" name="plan" value="basico" /> Básico
-          <input type="radio" name="plan" value="completo" /> Completo
+          <input
+            type="radio"
+            name="plan"
+            value="basico"
+            ref={this.planBasicoRef}
+          />{" "}
+          Básico
+          <input type="radio" name="plan" value="completo" ref={this.planCompletorRef}/> Completo
         </div>
         <button type="submit" className="boton">
           Cotizar
