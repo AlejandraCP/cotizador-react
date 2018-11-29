@@ -24,7 +24,6 @@ class Formulario extends Component {
     this.props.cotizarSeguroProps(ObjAuto);
 
     // reset form
-
     e.currentTarget.reset();
 
   };

@@ -22,7 +22,7 @@ export function obtenerDiferenciaAnio(year) {
      return incremento;
  }
  export function obtenerPlan( plan ) {
-     return (plan === 'basico') ? 1.20 : 1.50;
+     return (plan === 'Básico') ? 1.20 : 1.50;
  }
  export function primeraMayuscula(texto) {
      return texto.charAt(0).toUpperCase() + texto.slice(1);
