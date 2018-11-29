@@ -5,7 +5,10 @@ import Formulario from './Formulario';
 class App extends Component {
 
   cotizarSeguroMet = (datosAuto) => {
-    console.log(datosAuto.year);
+
+    // aplicando destructutirng
+    const {marca, plan, año}= datosAuto;
+    console.log(plan);
     
   }
   render() {
